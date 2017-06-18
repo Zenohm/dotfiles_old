@@ -1,0 +1,8 @@
+alias d="cd ~/Downloads"
+alias docs="cd ~/Documents"
+alias music="cd ~/Music"
+alias videos="cd ~/Videos"
+alias ins="yaourt -S"
+alias rem="yaourt -R"
+alias remorph="yaourt -Qtd"
+alias upd="yaourt -Syu"

@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/usr/share/themes'
+let g:netrw_dirhist_2='/home/zen/.config/terminology'
+let g:netrw_dirhist_3='/home/zen/.config/terminology/themes'
+let g:netrw_dirhist_4='/home/zen/.config/nvim'
