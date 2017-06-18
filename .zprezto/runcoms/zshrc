@@ -1,0 +1,62 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+export EDITOR="nvim"
+export VISUAL=$EDITOR
+
+
+#export PATH=$PATH:/home/zen/.gem/ruby/2.4.0/bin
+#export WORKON_HOME=~/.virtualenvs
+# Used to create python2 virtual environments.
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
+
+#source /usr/bin/virtualenvwrapper.sh
+
+# A smarter directory jumper
+source /etc/profile.d/autojump.sh
+
+# Use tmux if it's available and it isn't currently running.
+#if command -v tmux>/dev/null; then
+  #[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+#fi
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+if [ -f ~/.config/shell/aliases ]; then
+	. ~/.config/shell/aliases
+fi
+
+# Custom functions
+# Switch back and forth between any process and zsh using Ctrl+z
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+# Disable auto-directory navigation.
+unsetopt AUTO_CD
+# Disable command correction
+unsetopt CORRECT
+
+export XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/
