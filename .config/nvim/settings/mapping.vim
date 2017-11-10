@@ -86,3 +86,8 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Map the Tagbar toggle to Ctrl + M
 map <C-m> :TagbarToggle<CR>
+
+" Use the improved incsearch plugin
+"map /  <Plug>(incsearch-forward)
+"map ?  <Plug>(incsearch-backward)
+"map g/ <Plug>(incsearch-stay)

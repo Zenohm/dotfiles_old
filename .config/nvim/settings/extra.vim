@@ -4,23 +4,28 @@
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
+" ================ Nerd Commenter ================
+let g:NERDCustomDelimiters = {
+    \ 'kivy': { 'left': '# ', 'leftAlt': '#/', 'rightAlt': '#/' },
+\ }
+
 " ================ Ale Setup ================
-silent! helptags ALL
+"silent! helptags ALL
 
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
+"function! LinterStatus() abort
+    "let l:counts = ale#statusline#Count(bufnr(''))
 
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
+    "let l:all_errors = l:counts.error + l:counts.style_error
+    "let l:all_non_errors = l:counts.total - l:all_errors
 
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
+    "return l:counts.total == 0 ? 'OK' : printf(
+    "\   '%dW %dE',
+    "\   all_non_errors,
+    "\   all_errors
+    "\)
+"endfunction
 
-set statusline=%{LinterStatus()}
+"set statusline=%{LinterStatus()}
 
 " ================ Neomake Setup ================
 
@@ -85,6 +90,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " ================ JavaComplete Setup ================
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" ================ CSyntaxAfter Setup ================
+
+autocmd! FileType c,cpp,java,php call CSyntaxAfter()
 
 " ================ Dein Setup ================
 " Automatically installs plugins on startup

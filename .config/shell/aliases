@@ -35,7 +35,8 @@ alias chgrp='chgrp --preserve-root'
 
 
 # ls
-alias ls='ls -hF --color=auto --group-directories-first'
+#alias ls='ls -hF --color=auto --group-directories-first'
+alias ls='exa'
 alias la='ls -A'
 alias ll='ls -lh'
 alias l='ls -alh'
@@ -77,6 +78,7 @@ alias pq='pacaur -Q'
 
 # Easily exit.
 alias e='exit'
+alias E='exit'
 
 # Easily connect to IPFW Oracle SQL database to run commands.
 alias cs364='rlwrap -if ~/Documents/Programs/SQL/Oracle/sqlplus.dict -pgreen sqlplus c##user36418@\"topaz.ipfw.edu:1521/orcl\"'
